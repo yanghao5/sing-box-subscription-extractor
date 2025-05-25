@@ -4,7 +4,7 @@ import os
 # third-party pkg
 import toml
 
-def validate_toml(file_path):
+def validate(file_path):
     try:
         with open(file_path, 'r') as f:
             toml_data = toml.load(f)
