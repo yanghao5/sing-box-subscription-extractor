@@ -1,0 +1,66 @@
+mode = "tmpl" # required, string，且值只能为 full tmpl nodes, 不可以为空
+tmpl_path = "" # required, string, 不可以为空
+config_save_path = "./config.json" # required, string, 可以为空
+nodes_save_path = "./nodes.json" # required, string, 可以为空
+
+# optional
+# 要么不写，写就需要写全，每一项都不能为空
+[cloudflare] 
+enable=true 
+CLOUDFLARE_ACCOUNT_ID="xxxxxxxxxxxxxxxxxxxxxxxxx"
+CLOUDFLARE_API_KEY="xxxxxxxxxxxxxxxxxxxxxxxxx"
+CLOUDFLARE_EMAIL="xxxx@gmail.com" # 判断是否是合法的邮箱
+CLOUDFLARE_KV_NAMESPACE_ID="xxxxxxxxxxxxxxxxxxxxxxxxx"
+# 必须是数组
+# 每个 token 仅由 数字和小写字母组成
+# 每个 token 长度需大于等于 32
+SUBSCRIBE_USER_TOKEN=[
+    "y5vswuhsfrona3y464yii8xc8zk6ffv7",
+    "6vunx1j0y3qont9vvqyf421nvj1psfnx",
+    "dngg9c4batg7wbxbfhs44hbx0jvezrjx"
+]
+
+# required, 至少要有一个 [[subscribe]]，
+# 如果一个都没有，则报错
+# url 和 tag 必须存在，且值不能为空
+# 剩余项，必须存在，但值可以为空
+[[subscribe]]
+url = "URL"
+tag = "tag_1"
+prefix = "A-"
+exclude_keywords="网站|官网|流量|过期|到期|收藏|超时|重置"
+exclude_protocol = "ssr|trojan" 
+
+[[subscribe]]
+url = "URL"
+tag = "tag_2"
+prefix = "B-"
+exclude_keywords="网站|官网|流量|过期|到期|收藏|超时|重置"
+exclude_protocol = "ssr|trojan" 
+
+# optional 
+# 要么不写，写就需要写全，每一项都不能为空
+[[sort]]
+range = "Proxy"
+mixed = false # bool
+keywords = [ # 数组长度要大于等于 2
+    "🇭🇰|HK|hk|香港|港|HongKong",
+    "🇹🇼|TW|tw|台湾|臺灣|台|Taiwan",
+    "🇸🇬|SG|sg|新加坡|狮|Singapore",
+    "🇯🇵|JP|jp|日本|日|Japan",
+    "🇺🇸|US|us|美国|美|United States",
+    "others",
+]
+
+[[sort]]
+range = "Jpan|Singapore|HongKong"
+mixed = false
+keywords = [
+    "专线",
+    "亚马逊",
+    "搬瓦工",
+    "0.1倍率",
+    "IPv6|ipv6",
+    "others",
+]
+
