@@ -4,16 +4,16 @@ on:
 jobs:
   build:
     runs-on: ubuntu-24.04
+    env:
+      PROVIDERS: ${{ vars.PROVIDERS }}
     steps:
         - name: Checkout code
           uses: actions/checkout@v4
-        - name: Git Clone sing-box-subscribe
+        - name: Extract
           run: |
             echo "Python DEV"
             python3 --version
             python3 -m pip install --upgrade pip -q
             pip install -r  requirements.txt -q
             echo "Get providers.toml"
-            echo "${{ vars.PROVIDERS }}" > providers.toml
-            echo "Validate providers.toml"
             python3 main.py

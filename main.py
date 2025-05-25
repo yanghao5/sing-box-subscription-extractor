@@ -1,6 +1,16 @@
 import toml
 import sys
 
+def get_providers():
+    # 获取环境变量
+    providers = os.getenv('PROVIDERS')  # 假设通过环境变量存储 TOML 配置内容
+    if providers:
+        with open('providers.toml', 'w') as f:
+            f.write(providers)
+        print("Providers.toml has been created successfully.")
+    else:
+        print("No PROVIDERS environment variable found.")
+
 def validate_toml(file_path):
     try:
         # 尝试加载 TOML 文件
