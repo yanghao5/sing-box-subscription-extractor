@@ -3,6 +3,7 @@ import warnings
 # internal pkg
 from validator import email
 from validator import name
+from validator import token
 
 # third-party pkg
 import toml
@@ -32,6 +33,12 @@ def check_cloudflare(cloudflare):
         raise ValueError(
             "SUBSCRIBE_USER_TOKEN in [cloudflare] field cannot be empty."
         )
+    for t in subscribe_user_token:
+        if not token.validate(t):
+            raise ValueError(
+                f"SUBSCRIBE_USER_TOKEN in [cloudflare] field haves invalid token {t}."
+            )
+            
 
 
 # validate subscribes
