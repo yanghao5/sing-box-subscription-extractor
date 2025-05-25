@@ -27,4 +27,5 @@ def validate_toml(file_path):
 
 if __name__ == "__main__":
     # 验证 providers.toml 文件的合法性
+    get_providers()
     validate_toml('providers.toml')
