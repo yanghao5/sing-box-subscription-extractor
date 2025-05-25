@@ -10,5 +10,5 @@ jobs:
         - name: Git Clone sing-box-subscribe
           run: |
             echo "Get Providers.toml"
-            echo "${{ env.PROVIDERS }}" > providers.toml
+            echo "${{ vars.PROVIDERS }}" > providers.toml
             cat providers.toml
