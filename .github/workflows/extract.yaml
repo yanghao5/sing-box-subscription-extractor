@@ -1,0 +1,15 @@
+name: Extract
+on:
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+    env:
+    steps:
+        - name: Checkout code
+          uses: actions/checkout@v4
+        - name: Git Clone sing-box-subscribe
+          run: |
+            echo "Get Providers.toml"
+            echo "${{ env.PROVIDERS }}" > providers.toml
+            cat providers.toml
