@@ -11,10 +11,18 @@
 - 你可以在本地运行此项目
 - 或者使用 github action 和 cloudflare worker 部署一个简单的订阅服务.
 
-# 本地运行
-```python
+## 本地运行
+
+```bash
 # clone repo
+git clone --depth= 1 https://github.com/yanghao5/sing-box-subscription-extractor.git sbse && cd sbse
 
 # install deps
 pip install -r  requirements.txt -q
+
+# edit providers.toml
+# refer to doc 
+
+# go
+python3 main.py
 ```
