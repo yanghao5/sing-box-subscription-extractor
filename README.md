@@ -1,7 +1,9 @@
-# sb-extractor
+# sing-box-subscription-extractor （sing-box 订阅聚合）
 
 有越来越多的机场开始提供 sing-box 格式的订阅.
-sb-extractor 可以将多个机场的订阅整合到一个 json 文件里.
+
+`sing-box-subscription-extractor` 可以将多个机场的订阅整合到一个 json 文件里.
+
 它也可以提取多个机场订阅中的节点，并将其存放到一个 json 文件中.
 
 # 使用
