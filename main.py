@@ -1,34 +1,38 @@
 import sys
-import os 
+import os
 
-import toml
-
-
-def get_providers():
-    # 获取环境变量
-    providers = os.getenv('PROVIDERS')  # 假设通过环境变量存储 TOML 配置内容
-    if providers:
-        with open('providers.toml', 'w') as f:
-            f.write(providers)
-        print("Providers.toml has been created successfully.")
-    else:
-        print("No PROVIDERS environment variable found.")
-
-def validate_toml(file_path):
-    try:
-        # 尝试加载 TOML 文件
-        with open(file_path, 'r') as f:
-            toml_data = toml.load(f)
-        print(f"{file_path} is valid TOML.")
-    except toml.TomlDecodeError as e:
-        print(f"Error: Invalid TOML format in {file_path}")
-        print(f"Details: {e}")
-        sys.exit(1)
-    except FileNotFoundError:
-        print(f"Error: {file_path} not found.")
-        sys.exit(1)
+# internal
+import validator
+from provider import provider
+from subscribe import subscribe, processor
+from extractor.extractor import ext
+from posttask import posttask
+from generator import generator
 
 if __name__ == "__main__":
-    # 验证 providers.toml 文件的合法性
-    get_providers()
-    validate_toml('providers.toml')
+    
+    # Step 1 validate providers.toml
+    validator.providers.validate("providers.toml")
+
+    # Step 2 read providers.toml
+    p = provider.reader("providers.toml")
+
+    # Step 3 download_subscribe
+    rawdata_list = subscribe.fetcher(p)
+
+    # Step 4 process raw subscribe data
+    processor.refine_raw_data(rawdata_list)
+
+    # Step 5 extract nodes
+    subs=ext(p.subscribe)
+    
+    # Step 5 gen
+    generator.gen(subs,p)
+    
+    # Step 6 upload to cloudflare kv
+    
+    # if not p.cloudflare:
+    #     upload.cf(p.cloudflare, p.config_save_path, p.nodes_save_path)
+        
+    # Step 7 post task
+    #posttask.post_task()
