@@ -175,3 +175,5 @@ cython_debug/
 
 # Project 
 temp
+nodes.json
+config.json
