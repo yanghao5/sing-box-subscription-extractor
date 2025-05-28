@@ -1,5 +1,4 @@
-import sys
-import os
+import json
 
 # internal
 from core.validator import providers
@@ -8,6 +7,7 @@ from core.subscribe import subscribe, processor
 from core.extractor.extractor import ext
 from core.posttask import posttask
 from core.generator import generator
+from core.cf import cf  
 
 if __name__ == "__main__":
     
@@ -29,10 +29,20 @@ if __name__ == "__main__":
     # Step 5 gen
     generator.gen(subs,p)
     
-    # Step 6 upload to cloudflare kv
-    
-    # if not p.cloudflare:
-    #     upload.cf(p.cloudflare, p.config_save_path, p.nodes_save_path)
+    # Step 6 upload to cloudflare kv  
+    if p.cloudflare:
+        # upload nodes
+        with open("./temp/nodes.json", "r", encoding="utf-8") as file:
+            data = json.load(file)
+        json_str = json.dumps(data, ensure_ascii=False)
+        cf.upload(p.cloudflare,json_str,"nodes")
+        
+        # upload subscription
+        with open("./temp/config.json", "r", encoding="utf-8") as file:
+            data = json.load(file)
+        json_str = json.dumps(data, ensure_ascii=False)
+        for t in p.cloudflare.SUBSCRIBE_USER_TOKEN:
+            cf.upload(p.cloudflare,json_str,t)
         
     # Step 7 post task
     #posttask.post_task()
