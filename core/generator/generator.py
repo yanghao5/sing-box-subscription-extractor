@@ -195,13 +195,13 @@ def gen(Subs: List[Sub], p: Providers):
     # Step 10
     if p.mode == "nodes":
         shutil.copy("./temp/nodes.json", nodesSavePath)
-        print("\033[31m nodes file saved as " + nodesSavePath + "\033[0m")
+        print("\033[31m nodes file saved as " + nodesSavePath + "\033[0m\n")
     if p.mode == "tmpl":
         shutil.copy("./temp/config.json", configSavePath)
-        print("\033[31m sing-box config file saved as " + nodesSavePath + "\033[0m")
+        print("\033[31m sing-box config file saved as " + nodesSavePath + "\033[0m\n")
     if p.mode == "full":
         shutil.copy("./temp/config.json", configSavePath)
-        print("\033[31m sing-box config file saved as " + configSavePath + "\033[0m")
+        print("\033[31m sing-box config file saved as " + configSavePath + "\033[0m\n")
         
         shutil.copy("./temp/nodes.json", nodesSavePath)
-        print("\033[31m nodes file saved as " + nodesSavePath + "\033[0m")
+        print("\033[31m nodes file saved as " + nodesSavePath + "\033[0m\n")
