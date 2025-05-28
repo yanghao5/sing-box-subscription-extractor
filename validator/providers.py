@@ -39,8 +39,6 @@ def check_cloudflare(cloudflare):
                 f"SUBSCRIBE_USER_TOKEN in [cloudflare] field haves invalid token {t}."
             )
             
-
-
 # validate subscribes
 def check_subscribes(subscribe_list):
     tags=[]
@@ -88,11 +86,11 @@ def check_sorts(sort_list):
             raise ValueError(f'providers.toml {index} [[sort]] range field is empty')
         
          # mixed
-        mixed=sort.get("mixed",None)
-        if mixed is None:
-            raise ValueError(f'providers.toml {index} [[sort]] lack mixed field')
-        if mixed=="":
-            raise ValueError(f'providers.toml {index} [[sort]] range mixed is empty')
+        #mixed=sort.get("mixed","hello")
+        # if mixed is None:
+        #     raise ValueError(f'providers.toml {index} [[sort]] lack mixed field')
+        # if mixed=="":
+        #     raise ValueError(f'providers.toml {index} [[sort]] range mixed is empty')
         
         # keywords
         keywords=sort.get("keywords",None)
@@ -156,12 +154,12 @@ def validate(file_path):
         else:
             check_sorts(sorts)
 
-        print("TOML 文件校验通过!")
+        print("\033[34m providers.toml file verification passed! \033[0m\n")
     
     except ValueError as ve:
-        print(f"校验错误: {ve}")
+        print(f"\033[34m Verification Error: {ve} \033[0m")
     except Exception as e:
-        print(f"其他错误: {e}")
+        print(f"\033[34m Other Error: {e} \033[0m")
 
 # 调用示例
 if __name__ == "__main__":
