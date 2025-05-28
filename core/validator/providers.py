@@ -1,9 +1,9 @@
 import warnings
 
 # internal pkg
-from validator import email
-from validator import name
-from validator import token
+from core.validator import email
+from core.validator import name
+from core.validator import token
 
 # third-party pkg
 import toml

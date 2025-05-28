@@ -2,7 +2,7 @@ import sys
 import os 
 
 # internal pkg
-from validator import toml
+from core.validator import toml
 
 def get_providers():
     providers = os.getenv('PROVIDERS')

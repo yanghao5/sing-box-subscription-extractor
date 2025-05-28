@@ -2,7 +2,7 @@ import os
 from typing import List
 
 # internal pkg
-from provider.provider import Providers
+from core.provider.provider import Providers
 
 # third-party pkg
 import requests

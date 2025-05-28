@@ -5,8 +5,8 @@ from typing import List, Optional
 from dataclasses import dataclass
 
 # internal
-from extractor.extractor import Sub
-from provider.provider import Providers, Sort
+from core.extractor.extractor import Sub
+from core.provider.provider import Providers, Sort
 
 
 @dataclass

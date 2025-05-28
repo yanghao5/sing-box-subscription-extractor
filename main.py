@@ -2,17 +2,17 @@ import sys
 import os
 
 # internal
-import validator
-from provider import provider
-from subscribe import subscribe, processor
-from extractor.extractor import ext
-from posttask import posttask
-from generator import generator
+from core.validator import providers
+from core.provider import provider
+from core.subscribe import subscribe, processor
+from core.extractor.extractor import ext
+from core.posttask import posttask
+from core.generator import generator
 
 if __name__ == "__main__":
     
     # Step 1 validate providers.toml
-    validator.providers.validate("providers.toml")
+    providers.validate("providers.toml")
 
     # Step 2 read providers.toml
     p = provider.reader("providers.toml")
