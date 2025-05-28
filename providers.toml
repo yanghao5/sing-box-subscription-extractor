@@ -1,23 +1,25 @@
-mode = "tmpl" # required, string，且值只能为 full tmpl nodes, 不可以为空
-tmpl_path = "" # required, string, 不可以为空
+mode = "full" # required, string，且值只能为 full tmpl nodes, 不可以为空
+tmpl_path = "tmpl/RealDNS_Tun_RuleSet.json" # required, string, 不可以为空
 config_save_path = "./config.json" # required, string, 可以为空
 nodes_save_path = "./nodes.json" # required, string, 可以为空
+# enable_unicode_escape = true # false
 
 # optional
 # 要么不写，写就需要写全，每一项都不能为空
 [cloudflare] 
 enable=true 
-CLOUDFLARE_ACCOUNT_ID="xxxxxxxxxxxxxxxxxxxxxxxxx"
-CLOUDFLARE_API_KEY="xxxxxxxxxxxxxxxxxxxxxxxxx"
-CLOUDFLARE_EMAIL="xxxx@gmail.com" # 判断是否是合法的邮箱
-CLOUDFLARE_KV_NAMESPACE_ID="xxxxxxxxxxxxxxxxxxxxxxxxx"
-# 必须是数组
+CLOUDFLARE_ACCOUNT_ID="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+CLOUDFLARE_API_KEY="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+CLOUDFLARE_EMAIL="xxxxx@gmail.com" # 合法的邮箱
+CLOUDFLARE_KV_NAMESPACE_ID="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+
+# 数组
 # 每个 token 仅由 数字和小写字母组成
 # 每个 token 长度需大于等于 32
 SUBSCRIBE_USER_TOKEN=[
     "y5vswuhsfrona3y464yii8xc8zk6ffv7",
     "6vunx1j0y3qont9vvqyf421nvj1psfnx",
-    "dngg9c4batg7wbxbfhs44hbx0jvezrjx"
+    "dngg9c4batg7wbxbfhs44hbx0jvezhrp"
 ]
 
 # required, 至少要有一个 [[subscribe]]，
@@ -25,25 +27,26 @@ SUBSCRIBE_USER_TOKEN=[
 # url 和 tag 必须存在，且值不能为空
 # 剩余项，必须存在，但值可以为空
 [[subscribe]]
-url = "URL"
-tag = "tag_1"
+url = "https://xxx.com/subscribe?token=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+tag = "AA"
 prefix = "A-"
-exclude_keywords="网站|官网|流量|过期|到期|收藏|超时|重置"
-exclude_protocol = "ssr|trojan" 
+exclude_keywords="自动|网站|官网|流量|过期|到期|收藏|超时|重置"
+exclude_protocol = "ssh" 
 
 [[subscribe]]
-url = "URL"
-tag = "tag_2"
+url = "https://xxxx.com/subscribe?token=e4e71faf169ea29b7d49e7cd301961ee"
+tag = "AA"
 prefix = "B-"
-exclude_keywords="网站|官网|流量|过期|到期|收藏|超时|重置"
-exclude_protocol = "ssr|trojan" 
+exclude_keywords="自动|网站|官网|流量|过期|到期|收藏|超时|重置"
+exclude_protocol = "ssh" 
 
 # optional 
 # 要么不写，写就需要写全，每一项都不能为空
 [[sort]]
 range = "Proxy"
-mixed = false # bool
 keywords = [ # 数组长度要大于等于 2
+    "auto",
+    "direct",
     "🇭🇰|HK|hk|香港|港|HongKong",
     "🇹🇼|TW|tw|台湾|臺灣|台|Taiwan",
     "🇸🇬|SG|sg|新加坡|狮|Singapore",
@@ -63,4 +66,3 @@ keywords = [
     "IPv6|ipv6",
     "others",
 ]
-
