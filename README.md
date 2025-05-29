@@ -11,6 +11,15 @@
 - 你可以在本地运行此项目
 - 或者使用 github action 和 cloudflare worker 部署一个简单的订阅服务.
 
+## 机场订阅
+
+首先，你要能确定，你的机场是提供的 sing-box 订阅的，不然一切白搭.
+
+```bash
+# htttps://xxxxx 是你的机场订阅链接
+wget --user-agent="sing-box" https://xxxx -O xxxx.json
+```
+
 ## 本地运行
 
 ```bash
@@ -21,8 +30,14 @@ git clone --depth= 1 https://github.com/yanghao5/sing-box-subscription-extractor
 pip install -r  requirements.txt -q
 
 # edit providers.toml
-# refer to doc 
+# refer to doc https://github.com/yanghao5/sing-box-subscription-extractor/blob/main/docs/providers.md 
 
 # go
 python3 main.py
 ```
+
+## 使用 github 和 cf worker
+
+fork 一份本仓库
+
+（未完待续）
