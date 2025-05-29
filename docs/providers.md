@@ -13,7 +13,7 @@ nodes_save_path = "./nodes.json" # required, string, 可以为空
 ```
 - mode: tmpl 模式，用模板生成订阅文件，nodes 模式只生成节点文件，full 模式，两者都生成
 - tmpl_path 模板路径，模板可以自己制作，也可以使用预制的（tmpl目录中）
-    - 关于模板，参考 doc
+    - 关于模板，参考 [doc](https://github.com/yanghao5/sing-box-subscription-extractor/blob/main/docs/tmpl.md)
 - config_save_path 订阅文件的保存路径，为空时，使用默认路径
 - nodes_save_path 节点文件的保存路径，为空时，使用默认路径
 
