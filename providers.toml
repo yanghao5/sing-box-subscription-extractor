@@ -13,9 +13,9 @@ CLOUDFLARE_KV_NAMESPACE_ID="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 # 每个 token 仅由数字和小写字母组成
 # 每个 token 长度需大于等于 32
 SUBSCRIBE_USER_TOKEN=[
-    "y5vswuhsfrona3y464yii8xc8zk6ffv7",
-    "6vunx1j0y3qont9vvqyf421nvj1psfnx",
-    "dngg9c4batg7wbxbfhs44hbx0jvezhrp"
+    "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+    "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+    "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 ]
 
 # required, 至少要有一个 [[subscribe]]，
