@@ -27,7 +27,7 @@ def upload(config: Cloudflare, json_str: dict, key: str):
     response = requests.put(url, headers=headers, json=data)
 
     if response.status_code == 200:
-        print(f"\033[31mdata {key} have uploaded to cloudflare kv \033[0m")
+        print(f"\033[31mdata {key[:6]} have uploaded to cloudflare kv \033[0m")
     else:
         print("error:", response.status_code, response.text)
 
