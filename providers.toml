@@ -51,7 +51,7 @@ keywords = [ # 数组长度要大于等于 2
 ]
 
 [[sort]]
-range = "Jpan|Singapore|HongKong"
+range = "Jpan|Singapore|HongKong|TaiWan|America"
 keywords = [
     "专线",
     "亚马逊",
