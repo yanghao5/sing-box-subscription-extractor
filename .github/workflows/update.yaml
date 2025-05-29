@@ -1,0 +1,40 @@
+name: update
+
+# on:
+#    schedule:
+#      - cron: '0 0 * * *'  # 每天午夜12点执行（UTC）
+
+on:
+  workflow_dispatch:
+
+permissions:
+  issues: write
+
+jobs:
+  update-template:
+    runs-on: ubuntu-latest
+    env:
+      PROVIDERS: ${{ vars.PROVIDERS }}
+
+    steps:
+      - name: checkout code
+        uses: actions/checkout@v4
+      - name: Download current template
+        run: |
+            echo "Python DEV"
+            python3 --version
+            python3 -m pip install --upgrade pip -q
+            pip install -r  requirements.txt -q
+      - name: Compare the templates
+        run: |
+            echo "is update"
+            python3 update.py
+        id: diff_check
+        continue-on-error: true
+      - name: create an issue
+        if: steps.diff_check.outcome == 'failure'
+        uses: dacbd/create-issue-action@main
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          title: update subscribe 
+          body: You need to renew your subscription. Or maybe the action encountered some problem. Please check the log
