@@ -1,20 +1,16 @@
-mode = "full" # required, string，且值只能为 full tmpl nodes, 不可以为空
+mode = "full" # required, string，值只能为 full tmpl nodes, 不可以为空
 tmpl_path = "tmpl/RealDNS_Tun_RuleSet.json" # required, string, 不可以为空
 config_save_path = "./config.json" # required, string, 可以为空
 nodes_save_path = "./nodes.json" # required, string, 可以为空
-# enable_unicode_escape = true # false
 
-# optional
-# 要么不写，写就需要写全，每一项都不能为空
+# optional 要么不写，写就需要写全，每一项都不能为空
 [cloudflare] 
-enable=true 
 CLOUDFLARE_ACCOUNT_ID="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 CLOUDFLARE_API_KEY="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
-CLOUDFLARE_EMAIL="xxxxx@gmail.com" # 合法的邮箱
+CLOUDFLARE_EMAIL="xxxxx@gmail.com" # 必须是合法的邮箱地址
 CLOUDFLARE_KV_NAMESPACE_ID="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
-
 # 数组
-# 每个 token 仅由 数字和小写字母组成
+# 每个 token 仅由数字和小写字母组成
 # 每个 token 长度需大于等于 32
 SUBSCRIBE_USER_TOKEN=[
     "y5vswuhsfrona3y464yii8xc8zk6ffv7",
@@ -40,8 +36,7 @@ prefix = "B-"
 exclude_keywords="自动|网站|官网|流量|过期|到期|收藏|超时|重置"
 exclude_protocol = "ssh" 
 
-# optional 
-# 要么不写，写就需要写全，每一项都不能为空
+# optional 要么不写，写就需要写全，每一项都不能为空
 [[sort]]
 range = "Proxy"
 keywords = [ # 数组长度要大于等于 2
@@ -57,7 +52,6 @@ keywords = [ # 数组长度要大于等于 2
 
 [[sort]]
 range = "Jpan|Singapore|HongKong"
-mixed = false
 keywords = [
     "专线",
     "亚马逊",
