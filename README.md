@@ -98,7 +98,7 @@ pnpx wrangler deploy
 ```
 https://webget.king.worker.dev/subscribe?token=xxxxxxxxxxxxxxxxxxxx
 ```
-- update action 每天凌晨运行一次，判断需不需，要更新订阅，如果需要，它会创建一个 issue ，提醒你该更新了
+- update action 每天凌晨运行一次，判断需不需要，更新订阅，如果需要，它会创建一个 issue ，提醒你该更新了
 
 > 为什么不全部做成自动的？
 > 
