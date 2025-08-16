@@ -23,7 +23,6 @@
         "tag": "proxyDns",
         "address": "https://cloudflare-dns.com/dns-query",
         "address_resolver": "localDns",
-        "client_subnet": "223.5.5.5/24",
         "detour": "Proxy"
       },
       {
@@ -60,7 +59,7 @@
     ],
     "final": "localDns",
     "reverse_mapping": true,
-    "strategy": "prefer_ipv6"
+    "strategy": "prefer_ipv4"
   },
   "inbounds": [
     {
