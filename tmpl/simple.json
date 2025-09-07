@@ -27,8 +27,7 @@
             },
             {
                 "tag": "localDns",
-                "address": "223.5.5.5",
-                "detour": "direct"
+                "address": "223.5.5.5"
             }
         ],
         "rules": [
@@ -40,6 +39,10 @@
                 "outbound": "any",
                 "rewrite_ttl": 60,
                 "server": "localDns"
+            },
+            {
+                "rule_set": "geosite-geolocation-!cn",
+                "server": "proxyDns"
             },
             {
                 "rule_set": "geosite-cn",
@@ -57,10 +60,6 @@
             {
                 "clash_mode": "global",
                 "rewrite_ttl": 60,
-                "server": "proxyDns"
-            },
-            {
-                "rule_set": "geosite-geolocation-!cn",
                 "server": "proxyDns"
             }
         ],
@@ -102,8 +101,7 @@
             "outbounds": [
                 "direct",
                 "auto",
-                "{all}",
-                "Final"
+                "{all}"
             ]
         },
         {
@@ -111,8 +109,7 @@
             "type": "urltest",
             "outbounds": [
                 "direct",
-                "{all}",
-                "Final"
+                "{all}"
             ],
             "url": "http://connect.rom.miui.com/generate_204",
             "interval": "5m",
@@ -121,10 +118,6 @@
         {
             "type": "direct",
             "tag": "direct"
-        },
-        {
-            "tag": "Final",
-            "type": "direct"
         }
     ],
     "route": {
