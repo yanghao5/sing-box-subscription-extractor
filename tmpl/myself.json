@@ -37,19 +37,24 @@
                 "action": "reject"
             },
             {
+                "rule_set": "geosite-geolocation-!cn",
+                "rewrite_ttl": 60,
+                "server": "proxyDns"
+            },
+            {
                 "rule_set": "geosite-cn",
                 "domain_suffix": [
                     "bing.com"
                 ],
                 "rewrite_ttl": 60,
                 "server": "localDns",
-                "client_subnet": "120.243.165.33"
+                "client_subnet": "1.2.3.4"
             },
             {
                 "clash_mode": "direct",
                 "rewrite_ttl": 60,
                 "server": "localDns",
-                "client_subnet": "120.243.165.33"
+                "client_subnet": "1.2.3.4"
             },
             {
                 "clash_mode": "global",
@@ -57,15 +62,10 @@
                 "server": "proxyDns"
             },
             {
-                "rule_set": "geosite-geolocation-!cn",
-                "rewrite_ttl": 60,
-                "server": "proxyDns"
-            },
-            {
                 "protocol": "dns",
                 "rewrite_ttl": 60,
                 "server": "localDns",
-                "client_subnet": "120.243.165.33"
+                "client_subnet": "1.2.3.4"
             }
         ],
         "final": "localDns",
@@ -129,7 +129,7 @@
         "auto_detect_interface": true,
         "final": "Proxy",
         "default_domain_resolver": {
-            "server": "proxyDns",
+            "server": "localDns",
             "rewrite_ttl": 60
         },
         "rules": [
@@ -173,6 +173,12 @@
             {
                 "ip_is_private": true,
                 "outbound": "direct-out"
+            },
+            {
+                "ip_cidr": [
+                    "43.156.127.29"
+                ],
+                "outbound": "Proxy"
             },
             {
                 "domain_suffix": [
