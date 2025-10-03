@@ -3,7 +3,7 @@ from typing import List, Optional
 from dataclasses import dataclass
 
 # internal
-from core.provider.provider import Subscribe
+from tools.provider.provider import Subscribe
 
 @dataclass
 class Sub:

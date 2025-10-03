@@ -5,8 +5,8 @@ from typing import List, Optional
 from dataclasses import dataclass
 
 # internal
-from core.extractor.extractor import Sub
-from core.provider.provider import Providers, Sort
+from tools.extractor.extractor import Sub
+from tools.provider.provider import Providers, Sort
 
 @dataclass
 class SubsTag:
