@@ -9,7 +9,7 @@ from tools.validator import token
 import json
 
 
-# validate providers.toml
+# validate providers.json
 def Json(file_path):
     try:
         # 打开 JSON 文件，指定编码为 utf-8
@@ -18,8 +18,8 @@ def Json(file_path):
         
         # validate mode field
         mode= data.get('mode')
-        if not (isinstance(mode, str) and mode in ["full", "config", "nodes"]):
-            raise ValueError('providers.json mode field is required and must be one of ["full", "config", "nodes"]')
+        if not (isinstance(mode, str) and mode in ["full", "tmpl", "nodes"]):
+            raise ValueError('providers.json mode field is required and must be one of ["full", "tmpl", "nodes"]')
         
         # validate tmpl_path field
         tmpl_path=data.get("tmpl_path",None)    
