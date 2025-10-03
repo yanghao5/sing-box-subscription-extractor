@@ -1,0 +1,39 @@
+{
+    "mode": "full",
+    "tmpl_path": "tmpl/myself.json",
+    "config_save_path": "./config.json",
+    "nodes_save_path": "./nodes.json",
+    "cf": {
+        "CLOUDFLARE_ACCOUNT_ID": "xxxxxxxxxxxxxxxxxxxxxx",
+        "CLOUDFLARE_API_KEY": "xxxxxxxxxxxxxxxxxxxxxx",
+        "CLOUDFLARE_EMAIL": "xxxxxxxxxxxxxxxxxxxxxx@gmail.com",
+        "CLOUDFLARE_KV_NAMESPACE_ID": "xxxxxxxxxxxxxxxxxxxxxx",
+        "USER_TOKEN": [
+            "xxxxxxxxxxxxxxxxxxxxxx"
+        ]
+    },
+    "subscription": [
+        {
+            "url": "https://xxxxxxxxxxxxxxxxxxxxxx",
+            "tag": "s1",
+            "prefix": "",
+            "exclude_keywords": "自动|网站|官网|流量|过期|到期|收藏|超时|重置",
+            "exclude_protocol": ""
+        }
+    ],
+    "sort": [
+        {
+            "range": "Proxy",
+            "keywords": [
+                "auto",
+                "direct",
+                "🇭🇰|HK|hk|香港|港|HongKong",
+                "🇹🇼|TW|tw|台湾|臺灣|台|Taiwan",
+                "🇸🇬|SG|sg|新加坡|狮|Singapore",
+                "🇯🇵|JP|jp|日本|日|Japan",
+                "🇺🇸|US|us|美国|美|United States",
+                "others"
+            ]
+        }
+    ]
+}
